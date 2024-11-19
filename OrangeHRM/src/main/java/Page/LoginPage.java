@@ -25,7 +25,6 @@ public class LoginPage extends BasePage {
     private final By username = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='username']");
     private final By password = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='password']");
     private final By loginButton = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(4) > button");
-    private final By elementHeaderTitle = By.cssSelector("div[id='app'] >div > div > header > div > div > span > h6");
     private final By noInputUsername = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > span");
     private final By noInputPassword = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(3) > div >span");
     private final By invalidUsernameOrPassword = By.cssSelector("div[class='orangehrm-login-form'] > div > div > div >p");
@@ -34,7 +33,6 @@ public class LoginPage extends BasePage {
     private final String correctPassword = "admin123";
     private final String incorrectUsername = "aaaaaa";
     private final String incorrectPassword = "aaaaaa";
-    private final String headerTitle = "Dashboard";
     private final String noUsernameOrPasswordMessage = "Required";
     private final String invalidAccountMessage = "Invalid credentials";
     
@@ -55,12 +53,6 @@ public class LoginPage extends BasePage {
     }
     public void clickLoginButton(){
         click(loginButton);
-    }
-    public String getHeaderTitle(){
-        return getText(elementHeaderTitle);
-    }
-    public void checkLoginSuccessful(){
-        Assert.assertEquals(getHeaderTitle(),headerTitle);
     }
     public void checkLoginFailedNoUsername(){
         Assert.assertEquals(getText(noInputUsername),noUsernameOrPasswordMessage);

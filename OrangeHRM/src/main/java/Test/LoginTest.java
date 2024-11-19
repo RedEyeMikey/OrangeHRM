@@ -1,6 +1,7 @@
 package Test;
 
 import Base.BaseTest;
+import Page.DashboardPage;
 import Page.LoginPage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -8,6 +9,7 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
     LoginPage loginPage = new LoginPage();
+    DashboardPage dashBoardPage = new DashboardPage();
     @BeforeMethod
     public void loadWebsite() {
         basePage.getUrl(loginPage.url);
@@ -17,7 +19,7 @@ public class LoginTest extends BaseTest {
         loginPage.inputCorrectUsername();
         loginPage.inputCorrectPassword();
         loginPage.clickLoginButton();
-        loginPage.checkLoginSuccessful();
+        dashBoardPage.checkLoginSuccessful();
     }
     @Test
     public void loginFailedNoUsernameInput(){
