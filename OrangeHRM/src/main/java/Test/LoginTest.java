@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
     public void loadWebsite() {
         basePage.getUrl(loginPage.url);
     }
-    @Test
+    @Test (priority = 1)
     public void loginToPageSuccessful() {
         loginPage.inputCorrectUsername();
         loginPage.inputCorrectPassword();
@@ -37,6 +37,11 @@ public class LoginTest extends BaseTest {
         loginPage.inputIncorrectPassword();
         loginPage.clickLoginButton();
         loginPage.checkLoginFailedInvalidAccount();
+    }
+    @Test
+    public void noInputUsernameAndPassword(){
+        loginPage.clickLoginButton();
+        loginPage.checkLoginFailedNoUsernameAndPassword();
     }
 }
 
