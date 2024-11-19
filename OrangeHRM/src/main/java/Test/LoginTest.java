@@ -45,5 +45,16 @@ public class LoginTest extends BaseTest {
         loginPage.clickLoginButton();
         loginPage.checkLoginFailedNoUsernameAndPassword();
     }
+    @Test
+    public void loginAndLogout(){
+        loginPage.inputCorrectUsername();
+        loginPage.inputCorrectPassword();
+        loginPage.clickLoginButton();
+        dashBoardPage.checkLoginSuccessful();
+        dashBoardPage.clickUserDropdown();
+        dashBoardPage.clickLogoutButton();
+        dashBoardPage.checkLogoutSuccessful();
+
+    }
 }
 

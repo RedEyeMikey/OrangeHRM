@@ -9,32 +9,32 @@ import org.testng.Assert;
 public class LoginPage extends BasePage {
 
 //    @FindBy(css = "div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='username']")
-//    private WebElement username;
+//    public WebElement username;
 //    @FindBy(css = "div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='password']")
-//    private WebElement password;
+//    public WebElement password;
 //    @FindBy(css = "div[class='orangehrm-login-form'] > form > div:nth-child(4) > button")
-//    private WebElement loginButton;
+//    public WebElement loginButton;
 //    @FindBy(css = "div[id='app'] >div > div > header > div > div > span > h6")
-//    private WebElement elementHeaderTitle;
+//    public WebElement elementHeaderTitle;
 //    @FindBy(css = "div[class='orangehrm-login-form'] > form > div > div > span")
-//    private WebElement noInputUsername;
+//    public WebElement noInputUsername;
 //    @FindBy(css = "div[class='orangehrm-login-form'] > form > div:nth-child(3) > div >span")
-//    private WebElement noInputPassword;
+//    public WebElement noInputPassword;
 //    @FindBy(css = "div[class='orangehrm-login-form'] > div > div > div >p")
-//    private WebElement invalidUsernameOrPassword;
-    private final By username = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='username']");
-    private final By password = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='password']");
-    private final By loginButton = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(4) > button");
-    private final By noInputUsername = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > span");
-    private final By noInputPassword = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(3) > div >span");
-    private final By invalidUsernameOrPassword = By.cssSelector("div[class='orangehrm-login-form'] > div > div > div >p");
+//    public WebElement invalidUsernameOrPassword;
+    public final By username = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='username']");
+    public final By password = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='password']");
+    public final By loginButton = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(4) > button");
+    public final By noInputUsername = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > span");
+    public final By noInputPassword = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(3) > div >span");
+    public final By invalidUsernameOrPassword = By.cssSelector("div[class='orangehrm-login-form'] > div > div > div >p");
 
-    private final String correctUsername = "Admin";
-    private final String correctPassword = "admin123";
-    private final String incorrectUsername = "aaaaaa";
-    private final String incorrectPassword = "aaaaaa";
-    private final String noUsernameOrPasswordMessage = "Required";
-    private final String invalidAccountMessage = "Invalid credentials";
+    public final String correctUsername = "Admin";
+    public final String correctPassword = "admin123";
+    public final String incorrectUsername = "aaaaaa";
+    public final String incorrectPassword = "aaaaaa";
+    public final String noUsernameOrPasswordMessage = "Required";
+    public final String invalidAccountMessage = "Invalid credentials";
     
     public final String url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 

@@ -56,5 +56,9 @@ public class BasePage {
         waitForVisibility(locator);
         return find(locator).getText();
     }
+    public boolean isDisplayed(By locator){
+        waitForVisibility(locator);
+        return find(locator).isDisplayed();
+    }
 
 }
