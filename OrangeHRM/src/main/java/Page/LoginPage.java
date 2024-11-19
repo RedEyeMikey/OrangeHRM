@@ -1,28 +1,34 @@
 package Page;
 
 import Base.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 public class LoginPage extends BasePage {
-    BasePage basePage = new BasePage();
 
-
-    @FindBy(css = "div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input:nth-child(1)")
-    private WebElement username;
-    @FindBy(css = "div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input:nth-child(2)")
-    private WebElement password;
-    @FindBy(css = "div[class='orangehrm-login-form'] > form > div:nth-child(4) > button")
-    private WebElement loginButton;
-    @FindBy(css = "div[id='app'] >div > div > header > div > div > span > h6")
-    private WebElement elementHeaderTitle;
-    @FindBy(css = "div[class='orangehrm-login-form'] > form > div > div > span")
-    private WebElement noInputUsername;
-    @FindBy(css = "div[class='orangehrm-login-form'] > form > div:nth-child(3) > div >span")
-    private WebElement noInputPassword;
-    @FindBy(css = "div[class='orangehrm-login-form'] > div > div > div >p")
-    private WebElement invalidUsernameOrPassword;
+//    @FindBy(css = "div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='username']")
+//    private WebElement username;
+    private final By username = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='username']");
+//    @FindBy(css = "div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='password']")
+//    private WebElement password;
+    private final By password = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='password']");
+//    @FindBy(css = "div[class='orangehrm-login-form'] > form > div:nth-child(4) > button")
+//    private WebElement loginButton;
+    private final By loginButton = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(4) > button");
+//    @FindBy(css = "div[id='app'] >div > div > header > div > div > span > h6")
+//    private WebElement elementHeaderTitle;
+    private final By elementHeaderTitle = By.cssSelector("div[id='app'] >div > div > header > div > div > span > h6");
+//    @FindBy(css = "div[class='orangehrm-login-form'] > form > div > div > span")
+//    private WebElement noInputUsername;
+    private final By noInputUsername = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > span");
+//    @FindBy(css = "div[class='orangehrm-login-form'] > form > div:nth-child(3) > div >span")
+//    private WebElement noInputPassword;
+    private final By noInputPassword = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(3) > div >span");
+//    @FindBy(css = "div[class='orangehrm-login-form'] > div > div > div >p")
+//    private WebElement invalidUsernameOrPassword;
+    private final By invalidUsernameOrPassword = By.cssSelector("div[class='orangehrm-login-form'] > div > div > div >p");
 
     private final String correctUsername = "Admin";
     private final String correctPassword = "admin123";
@@ -34,39 +40,40 @@ public class LoginPage extends BasePage {
     
     public final String url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
+
     public void inputCorrectUsername(){
-        basePage.enterText(username,correctUsername);
+        enterText(username,correctUsername);
     }
     public void inputCorrectPassword(){
-        basePage.enterText(password, correctPassword);
+        enterText(password, correctPassword);
     }
     public void inputIncorrectUsername(){
-        basePage.enterText(username, incorrectUsername);
+        enterText(username, incorrectUsername);
     }
     public void inputIncorrectPassword(){
-        basePage.enterText(password, incorrectPassword);
+        enterText(password, incorrectPassword);
     }
     public void clickLoginButton(){
-        basePage.click(loginButton);
+        click(loginButton);
     }
     public String getHeaderTitle(){
-        return basePage.getText(elementHeaderTitle);
+        return getText(elementHeaderTitle);
     }
     public void checkLoginSuccessful(){
         Assert.assertEquals(getHeaderTitle(),headerTitle);
     }
     public void checkLoginFailedNoUsername(){
-        Assert.assertEquals(basePage.getText(noInputUsername),noUsernameOrPasswordMessage);
+        Assert.assertEquals(getText(noInputUsername),noUsernameOrPasswordMessage);
 
     }
     public void checkLoginFailedNoPassword(){
-        Assert.assertEquals(basePage.getText(noInputPassword),noUsernameOrPasswordMessage);
+        Assert.assertEquals(getText(noInputPassword),noUsernameOrPasswordMessage);
     }
     public void checkLoginFailedNoUsernameAndPassword(){
-        Assert.assertEquals(basePage.getText(noInputUsername),noUsernameOrPasswordMessage);
-        Assert.assertEquals(basePage.getText(noInputPassword),noUsernameOrPasswordMessage);
+        Assert.assertEquals(getText(noInputUsername),noUsernameOrPasswordMessage);
+        Assert.assertEquals(getText(noInputPassword),noUsernameOrPasswordMessage);
     }
     public void checkLoginFailedInvalidAccount(){
-        Assert.assertEquals(basePage.getText(invalidUsernameOrPassword),invalidAccountMessage);
+        Assert.assertEquals(getText(invalidUsernameOrPassword),invalidAccountMessage);
     }
 }
