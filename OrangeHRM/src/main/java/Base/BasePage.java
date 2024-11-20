@@ -29,7 +29,7 @@ public class BasePage {
     public void waitForVisibility(By locator) {
         Wait<WebDriver> waitElementWebsite = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofMillis(250))
+                .pollingEvery(Duration.ofMillis(100))
                 .ignoring(NoSuchElementException.class);
         waitElementWebsite.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
