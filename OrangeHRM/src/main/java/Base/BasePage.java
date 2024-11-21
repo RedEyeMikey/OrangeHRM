@@ -13,9 +13,9 @@ import java.time.Duration;
 import static Base.BaseTest.driver;
 
 public class BasePage {
-    By locator;
-    private final Duration IMPLICITLY_WAIT_TIME = Duration.ofSeconds(20);
-    private final Duration EXPLICITLY_WAIT_TIME = Duration.ofSeconds(5);
+//    By locator;
+//    private final Duration IMPLICITLY_WAIT_TIME = Duration.ofSeconds(20);
+//    private final Duration EXPLICITLY_WAIT_TIME = Duration.ofSeconds(5);
 
 
     public WebElement find(By locator) {

@@ -23,7 +23,7 @@ public class LoginPage extends BasePage {
 //    @FindBy(css = "div[class='orangehrm-login-form'] > div > div > div >p")
 //    public WebElement invalidUsernameOrPassword;
     public final By username = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='username']");
-    public final By password = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='password']");
+    public final By password = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(3) > div > div:nth-child(2) > input");
     public final By loginButton = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(4) > button");
     public final By noInputUsername = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > span");
     public final By noInputPassword = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(3) > div >span");

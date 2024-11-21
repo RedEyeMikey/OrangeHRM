@@ -19,12 +19,6 @@ public class BaseTest {
         driver.manage().window().maximize();
         basePage = new BasePage();
         loginPage = new LoginPage();
-
-    }
-    @BeforeMethod
-    public void loadWebsite() {
-        basePage.getUrl(loginPage.url);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @AfterClass
