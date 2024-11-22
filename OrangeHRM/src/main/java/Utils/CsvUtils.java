@@ -1,6 +1,6 @@
 package Utils;
 
 public class CsvUtils {
-    public String returnCsvValue(){
+    public void returnCsvValue(){
     }
 }

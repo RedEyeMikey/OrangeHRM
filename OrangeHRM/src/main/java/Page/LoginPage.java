@@ -2,11 +2,9 @@ package Page;
 
 import Base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 public class LoginPage extends BasePage {
+    AdminPage adminPage = new AdminPage();
 
 //    @FindBy(css = "div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='username']")
 //    public WebElement username;
@@ -22,49 +20,30 @@ public class LoginPage extends BasePage {
 //    public WebElement noInputPassword;
 //    @FindBy(css = "div[class='orangehrm-login-form'] > div > div > div >p")
 //    public WebElement invalidUsernameOrPassword;
-    public final By username = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='username']");
-    public final By password = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(3) > div > div:nth-child(2) > input");
+    public final By usernameBlock = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > div:nth-child(2) > input[name='username']");
+    public final By passwordBlock = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(3) > div > div:nth-child(2) > input");
     public final By loginButton = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(4) > button");
-    public final By noInputUsername = By.cssSelector("div[class='orangehrm-login-form'] > form > div > div > span");
-    public final By noInputPassword = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(3) > div >span");
-    public final By invalidUsernameOrPassword = By.cssSelector("div[class='orangehrm-login-form'] > div > div > div >p");
 
-    public final String correctUsername = "Admin";
-    public final String correctPassword = "admin123";
-    public final String incorrectUsername = "aaaaaa";
-    public final String incorrectPassword = "aaaaaa";
-    public final String noUsernameOrPasswordMessage = "Required";
-    public final String invalidAccountMessage = "Invalid credentials";
-    
+    public final String defaultUsername = "Admin";
+    public final String defaultPassword = "admin123";
+
     public final String url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
 
-    public void inputCorrectUsername(){
-        enterText(username,correctUsername);
+    public void inputDefaultUsername(){
+        enterText(usernameBlock, defaultUsername);
     }
-    public void inputCorrectPassword(){
-        enterText(password, correctPassword);
+    public void inputDefaultPassword(){
+        enterText(passwordBlock, defaultPassword);
     }
-    public void inputIncorrectUsername(){
-        enterText(username, incorrectUsername);
+
+    public void inputNewUsername(){
+        enterText(usernameBlock,adminPage.username);
     }
-    public void inputIncorrectPassword(){
-        enterText(password, incorrectPassword);
+    public void inputNewPassword(){
+        enterText(usernameBlock, adminPage.password);
     }
-    public void clickLoginButton(){
+    public void clickLoginButton() {
         click(loginButton);
-    }
-    public void checkLoginFailedNoUsername(){
-        Assert.assertEquals(getText(noInputUsername),noUsernameOrPasswordMessage);
-    }
-    public void checkLoginFailedNoPassword(){
-        Assert.assertEquals(getText(noInputPassword),noUsernameOrPasswordMessage);
-    }
-    public void checkLoginFailedNoUsernameAndPassword(){
-        Assert.assertEquals(getText(noInputUsername),noUsernameOrPasswordMessage);
-        Assert.assertEquals(getText(noInputPassword),noUsernameOrPasswordMessage);
-    }
-    public void checkLoginFailedInvalidAccount(){
-        Assert.assertEquals(getText(invalidUsernameOrPassword),invalidAccountMessage);
     }
 }

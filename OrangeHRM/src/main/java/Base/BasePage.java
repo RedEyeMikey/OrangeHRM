@@ -1,9 +1,7 @@
 package Base;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -59,6 +57,17 @@ public class BasePage {
     public boolean isDisplayed(By locator){
         waitForVisibility(locator);
         return find(locator).isDisplayed();
+    }
+    public void selectAll(){
+        Actions action = new Actions(driver);
+        action.keyDown(Keys.CONTROL);
+        action.sendKeys("a");
+        action.keyUp(Keys.CONTROL);
+    }
+    public void deleteWithBackSpace(){
+        Actions action = new Actions(driver);
+        action.keyDown(Keys.BACK_SPACE);
+        action.keyUp(Keys.BACK_SPACE);
     }
 
 }

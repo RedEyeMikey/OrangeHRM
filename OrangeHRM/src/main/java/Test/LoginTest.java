@@ -18,8 +18,17 @@ public class LoginTest extends BaseTest {
     }
     @Test
     public void testCase01(){
-        step.Login();
-        step.Logout();
+        step.loginDefaultAccount();
+        step.logout();
+    }
+    @Test
+    public void testCase02(){
+        step.loginDefaultAccount();
+        step.registerNewEmployee();
+        step.registerNewAdminAccount();
+        step.gotoDashboardPage();
+        step.logout();
+        step.loginNewAccount();
     }
 
 }
