@@ -36,11 +36,12 @@ public class PIMPage extends BasePage {
     public void inputLastName(){
         enterText(lastNameBlock, lastName);
     }
+    //need check and fix
     public void inputId(){
-//        click(idBlock);
-//        selectAll();
-//        deleteWithBackSpace();
-//        enterText(idInputBlock, id);
+        click(idBlock);
+        selectAll();
+        deleteWithBackSpace();
+        enterText(idInputBlock, id);
     }
     public void clickSaveButton(){
         click(saveButton);

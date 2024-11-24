@@ -43,8 +43,10 @@ public class AdminPage extends BasePage {
     public void inputEmployeeName(){
         enterText(employeeNameBlock, employeeNameHint);
     }
+    // need check and fix
     public void selectFullName(){
         click(employeeNameBlock);
+        waitForVisibility(selectName);
         click(selectName);
     }
     public void selectStatusEnabled(){
