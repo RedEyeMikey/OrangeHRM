@@ -24,16 +24,13 @@ public class LoginPage extends BasePage {
     public final By passwordBlock = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(3) > div > div:nth-child(2) > input");
     public final By loginButton = By.cssSelector("div[class='orangehrm-login-form'] > form > div:nth-child(4) > button");
 
-    public final String defaultUsername = "Admin";
-    public final String defaultPassword = "admin123";
-
     public final String url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
 
-    public void inputDefaultUsername(){
+    public void inputDefaultUsername(String defaultUsername){
         enterText(usernameBlock, defaultUsername);
     }
-    public void inputDefaultPassword(){
+    public void inputDefaultPassword(String defaultPassword){
         enterText(passwordBlock, defaultPassword);
     }
 
