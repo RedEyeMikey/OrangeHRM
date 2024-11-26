@@ -26,11 +26,13 @@ public class LoginPage extends BasePage {
 
     public final String url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
+    public final String defaultUsername = "Admin";
+    public final String defaultPassword = "admin123";
 
-    public void inputDefaultUsername(String defaultUsername){
+    public void inputDefaultUsername(){
         enterText(usernameBlock, defaultUsername);
     }
-    public void inputDefaultPassword(String defaultPassword){
+    public void inputDefaultPassword(){
         enterText(passwordBlock, defaultPassword);
     }
 

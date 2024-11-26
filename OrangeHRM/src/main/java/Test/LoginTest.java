@@ -11,8 +11,8 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.time.Duration;
 
-import static Utils.CsvUtils.readCSVData;
-import static Utils.CsvUtils.readExcelData;
+//import static Utils.CsvUtils.readCSVData;
+//import static Utils.CsvUtils.readExcelData;
 
 
 public class LoginTest extends BaseTest {
@@ -23,24 +23,24 @@ public class LoginTest extends BaseTest {
         basePage.getUrl(loginPage.url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
-    @DataProvider (name = "account_data")
-    public Object[][] getAccountData() throws IOException, CsvValidationException {
-        return readCSVData("Data\\data.csv");
-    }
-    @Test(dataProvider = "account_data")
-    public void testCase01(String username, String password){
-        step.loginDefaultAccount(username, password);
-        step.logout();
-    }
-//    @Test
-//    public void testCase02(){
-//        step.loginDefaultAccount();
-//        step.registerNewEmployee();
-//        step.registerNewAdminAccount();
-//        step.gotoDashboardPage();
-//        step.logout();
-//        step.loginNewAccount();
+//    @DataProvider (name = "account_data")
+//    public Object[][] getAccountData() throws IOException, CsvValidationException {
+//        return readCSVData("Data\\data.csv");
 //    }
+//    @Test()
+//    public void testCase01(String username, String password){
+//        step.loginDefaultAccount(username, password);
+//        step.logout();
+//    }
+    @Test
+    public void testCase02(){
+        step.loginDefaultAccount();
+        step.registerNewEmployee();
+        step.registerNewAdminAccount();
+        step.gotoDashboardPage();
+        step.logout();
+        step.loginNewAccount();
+    }
 
 }
 

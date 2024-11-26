@@ -46,10 +46,10 @@ public class BasePage {
 
     public void enterText(By locator, String string) {
         waitForVisibility(locator);
+        click(locator);
         find(locator).clear();
         find(locator).sendKeys(string);
     }
-
     public String getText(By locator) {
         waitForVisibility(locator);
         return find(locator).getText();
@@ -58,16 +58,7 @@ public class BasePage {
         waitForVisibility(locator);
         return find(locator).isDisplayed();
     }
-    public void selectAll(){
-        Actions action = new Actions(driver);
-        action.keyDown(Keys.CONTROL);
-        action.sendKeys("a");
-        action.keyUp(Keys.CONTROL);
+    public void deleteAll(By locator){
+        find(locator).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
     }
-    public void deleteWithBackSpace(){
-        Actions action = new Actions(driver);
-        action.keyDown(Keys.BACK_SPACE);
-        action.keyUp(Keys.BACK_SPACE);
-    }
-
 }

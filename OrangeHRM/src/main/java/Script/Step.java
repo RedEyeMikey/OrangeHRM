@@ -10,9 +10,9 @@ public class Step {
     DashboardPage dashboardPage = new DashboardPage();
     AdminPage adminPage = new AdminPage();
     PIMPage pimPage = new PIMPage();
-    public void loginDefaultAccount(String defaultUsername, String defaultPassword){
-        loginPage.inputDefaultUsername(defaultUsername);
-        loginPage.inputDefaultPassword(defaultPassword);
+    public void loginDefaultAccount(){
+        loginPage.inputDefaultUsername();
+        loginPage.inputDefaultPassword();
         loginPage.clickLoginButton();
         dashboardPage.checkLoginSuccessful();
 

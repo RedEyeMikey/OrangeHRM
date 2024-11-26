@@ -39,8 +39,7 @@ public class PIMPage extends BasePage {
     //need check and fix
     public void inputId(){
         click(idBlock);
-        selectAll();
-        deleteWithBackSpace();
+        deleteAll(idBlock);
         enterText(idInputBlock, id);
     }
     public void clickSaveButton(){
