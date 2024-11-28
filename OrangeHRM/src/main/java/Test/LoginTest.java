@@ -2,13 +2,9 @@ package Test;
 
 import Base.BaseTest;
 import Script.Step;
-import Utils.CsvUtils;
-import com.opencsv.exceptions.CsvValidationException;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
 import java.time.Duration;
 
 //import static Utils.CsvUtils.readCSVData;
@@ -40,6 +36,12 @@ public class LoginTest extends BaseTest {
         step.gotoDashboardPage();
         step.logout();
         step.loginNewAccount();
+    }
+    @Test
+    public void testCase03(){
+        step.loginDefaultAccount();
+        step.registerNewEmployee();
+        step.deleteEmployee();
     }
 
 }

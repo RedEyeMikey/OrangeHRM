@@ -41,12 +41,13 @@ public class AdminPage extends BasePage {
         click(userRoleAdmin);
     }
     public void inputEmployeeName(){
-        enterText(employeeNameBlock, employeeNameHint);
+
     }
     // need check and fix
     public void selectFullName(){
-        click(employeeNameBlock);
+        enterText(employeeNameBlock, employeeNameHint);
         waitForVisibility(selectName);
+        visibilityWait(selectName);
         click(selectName);
     }
     public void selectStatusEnabled(){

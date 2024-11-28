@@ -5,6 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -31,6 +32,10 @@ public class BasePage {
                 .ignoring(NoSuchElementException.class);
         waitElementWebsite.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+    public void visibilityWait(By locator){
+        Wait<WebDriver> wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
 //    public void waitForClickable(By locator) {
 //        Wait<WebDriver> waitElementWebsite = new FluentWait<>(driver)
 //                .withTimeout(Duration.ofSeconds(20))
@@ -47,6 +52,7 @@ public class BasePage {
     public void enterText(By locator, String string) {
         waitForVisibility(locator);
         click(locator);
+        deleteAll(locator);
         find(locator).clear();
         find(locator).sendKeys(string);
     }
@@ -57,6 +63,10 @@ public class BasePage {
     public boolean isDisplayed(By locator){
         waitForVisibility(locator);
         return find(locator).isDisplayed();
+    }
+    public void scrollToElement(By locator) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", find(locator));
     }
     public void deleteAll(By locator){
         find(locator).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));

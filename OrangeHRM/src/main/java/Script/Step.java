@@ -59,5 +59,16 @@ public class Step {
         dashboardPage.checkNewUsername();
 
     }
+    public void deleteEmployee(){
+        dashboardPage.goToPIM();
+        pimPage.searchEmployee();
+        pimPage.scrollToEmployee();
+        pimPage.checkCorrectId();
+        pimPage.deleteEmployee();
+        pimPage.checkSuccessfullyDeleted();
+        dashboardPage.goToPIM();
+        pimPage.searchEmployee();
+        pimPage.checkNoExistingUser();
+    }
 
 }
